@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>แก้ไขข้อมูลทีม</h1>
+
+<form method="POST" class="form-card">
+    <input type="text" name="team_name" value="{{ team.team_name }}" required>
+    <input type="text" name="game_title" value="{{ team.game_title }}" required>
+    <input type="text" name="coach_name" value="{{ team.coach_name }}" required>
+    <input type="date" name="founded_date" value="{{ team.founded_date }}" required>
+    <button type="submit">บันทึกการแก้ไข</button>
+</form>
+{% endblock %}
