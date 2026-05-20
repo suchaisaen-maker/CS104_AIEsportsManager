@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>จัดการข้อมูลทีม</h1>
+
+<form method="POST" class="form-card">
+    <input type="text" name="team_name" placeholder="ชื่อทีม" required>
+    <input type="text" name="game_title" placeholder="ชื่อเกม" required>
+    <input type="text" name="coach_name" placeholder="ชื่อโค้ช" required>
+    <input type="date" name="founded_date" required>
+    <button type="submit">เพิ่มทีม</button>
+</form>
+
+<section class="panel">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>ชื่อทีม</th>
+                <th>เกม</th>
+                <th>โค้ช</th>
+                <th>วันที่ก่อตั้ง</th>
+                <th>จัดการ</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for team in teams %}
+            <tr>
+                <td>{{ team.team_id }}</td>
+                <td>{{ team.team_name }}</td>
+                <td>{{ team.game_title }}</td>
+                <td>{{ team.coach_name }}</td>
+                <td>{{ team.founded_date }}</td>
+                <td>
+                    <a class="btn-edit" href="/teams/edit/{{ team.team_id }}">แก้ไข</a>
+                    <a class="btn-delete" href="/teams/delete/{{ team.team_id }}" onclick="return confirm('ต้องการลบข้อมูลนี้หรือไม่?')">ลบ</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}
