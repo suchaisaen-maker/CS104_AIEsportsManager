@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title or "E-Sports Team Manager" }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="logo">🎮 E-Sports</div>
+        <a href="/">Dashboard</a>
+        <a href="/teams">Teams</a>
+        <a href="/players">Players</a>
+        <a href="/gear">Gear</a>
+        <a href="/tournaments">Tournaments</a>
+        <a href="/results">Match Results</a>
+    </aside>
+
+    <main class="main">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
