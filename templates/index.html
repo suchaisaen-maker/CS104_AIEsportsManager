@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+    <h1>E-Sports Team Manager</h1>
+    <p>ระบบจัดการทีมแข่งเกม สำหรับรายวิชา CS104 Introduction to Database</p>
+</section>
+
+<div class="cards">
+    <div class="card">
+        <h2>{{ team_count }}</h2>
+        <p>Teams</p>
+    </div>
+    <div class="card">
+        <h2>{{ player_count }}</h2>
+        <p>Players</p>
+    </div>
+    <div class="card">
+        <h2>{{ gear_count }}</h2>
+        <p>Gaming Gear</p>
+    </div>
+    <div class="card">
+        <h2>{{ tournament_count }}</h2>
+        <p>Tournaments</p>
+    </div>
+</div>
+
+<section class="panel">
+    <h2>Recent Match Results</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Team</th>
+                <th>Tournament</th>
+                <th>Opponent</th>
+                <th>Score</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in recent_results %}
+            <tr>
+                <td>{{ row.team_name }}</td>
+                <td>{{ row.tournament_name }}</td>
+                <td>{{ row.opponent }}</td>
+                <td>{{ row.score }}</td>
+                <td><span class="badge">{{ row.result }}</span></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}
